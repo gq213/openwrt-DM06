@@ -427,6 +427,9 @@ ramips_board_detect() {
 	*"Mediatek MT7628AN evaluation board")
 		name="mt7628"
 		;;
+	*"DM06-V11_IOT-V22")
+		name="dm06"
+		;;
 	*"MediaTek LinkIt Smart 7688")
 		linkit="$(dd bs=1 skip=1024 count=12 if=/dev/mtd2 2> /dev/null)"
 		if [ "${linkit}" = "LINKITS7688D" ]; then

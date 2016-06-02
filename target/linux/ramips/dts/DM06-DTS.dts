@@ -92,4 +92,9 @@
 			};
 		};
 	};
+
+	ethernet@10100000 {
+		mtd-mac-address = <&factory 0x28>;
+		ralink,port-map = "wllll";
+	};
 };
