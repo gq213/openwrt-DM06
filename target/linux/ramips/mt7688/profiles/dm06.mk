@@ -8,7 +8,8 @@
 define Profile/DM06-profile
 	NAME:=dm06 iot board
 	PACKAGES:=\
-		kmod-usb-core kmod-usb2 kmod-usb-ohci
+		kmod-usb-core kmod-usb2 kmod-usb-ohci \
+		luci
 endef
 
 define Profile/DM06-profile/Description
