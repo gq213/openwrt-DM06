@@ -1,6 +1,7 @@
 config system
-	option hostname	OpenWrt
-	option timezone	UTC
+	option hostname	DM06
+	option timezone	CST-8
+	option zonename	Asia/Shanghai
 
 config timeserver ntp
 	list server	0.openwrt.pool.ntp.org
