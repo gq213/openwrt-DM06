@@ -305,3 +305,35 @@ define KernelPackage/nls-utf8/description
 endef
 
 $(eval $(call KernelPackage,nls-utf8))
+
+
+define KernelPackage/nls-ascii
+  SUBMENU:=Native Language Support
+  TITLE:=ASCII
+  KCONFIG:=CONFIG_NLS_ASCII
+  FILES:=$(LINUX_DIR)/fs/nls/nls_ascii.ko
+  AUTOLOAD:=$(call AutoLoad,25,nls_ascii)
+  $(call AddDepends/nls)
+endef
+
+define KernelPackage/nls-ascii/description
+ Kernel module for NLS ASCII
+endef
+
+$(eval $(call KernelPackage,nls-ascii))
+
+
+define KernelPackage/nls-cp936
+  SUBMENU:=Native Language Support
+  TITLE:=CP936
+  KCONFIG:=CONFIG_NLS_CODEPAGE_936
+  FILES:=$(LINUX_DIR)/fs/nls/nls_cp936.ko
+  AUTOLOAD:=$(call AutoLoad,25,nls_cp936)
+  $(call AddDepends/nls)
+endef
+
+define KernelPackage/nls-cp936/description
+ Kernel module for NLS CP936
+endef
+
+$(eval $(call KernelPackage,nls-cp936))
