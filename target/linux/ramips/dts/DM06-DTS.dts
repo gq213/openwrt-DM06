@@ -97,4 +97,9 @@
 		mtd-mac-address = <&factory 0x28>;
 		ralink,port-map = "wllll";
 	};
+
+	sdhci@10130000 {
+		status = "okay";
+		mediatek,cd-low;
+	};
 };

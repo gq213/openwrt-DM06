@@ -12,7 +12,8 @@ define Profile/DM06-profile
 		luci \
 		kmod-usb-storage kmod-fs-vfat \
 		kmod-nls-base kmod-nls-cp437 kmod-nls-iso8859-1 kmod-nls-utf8 kmod-nls-cp936 kmod-nls-ascii \
-		mountd usbutils
+		mountd usbutils \
+		kmod-sdhci-mt7620
 endef
 
 define Profile/DM06-profile/Description
