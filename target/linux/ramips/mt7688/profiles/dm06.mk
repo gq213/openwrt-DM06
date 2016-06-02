@@ -13,7 +13,9 @@ define Profile/DM06-profile
 		kmod-usb-storage kmod-fs-vfat \
 		kmod-nls-base kmod-nls-cp437 kmod-nls-iso8859-1 kmod-nls-utf8 kmod-nls-cp936 kmod-nls-ascii \
 		mountd usbutils \
-		kmod-sdhci-mt7620
+		kmod-sdhci-mt7620 \
+		kmod-i2c-core kmod-i2c-ralink \
+		kmod-sound-core kmod-sound-mtk madplay-alsa alsa-utils
 endef
 
 define Profile/DM06-profile/Description
