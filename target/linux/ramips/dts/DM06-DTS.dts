@@ -118,4 +118,22 @@
 			linux,code = <0x198>;
 		};
 	};
+
+	gpio-leds {
+		compatible = "gpio-leds";
+		wifi {
+			label = "mediatek:orange:wifi";
+			gpios = <&wgpio 0 0>;
+			default-state = "on";
+		};
+	};
+
+	wgpio: gpio-wifi {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		compatible = "mediatek,gpio-wifi";
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
 };

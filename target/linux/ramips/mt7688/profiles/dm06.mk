@@ -15,7 +15,8 @@ define Profile/DM06-profile
 		mountd usbutils \
 		kmod-sdhci-mt7620 \
 		kmod-i2c-core kmod-i2c-ralink \
-		kmod-sound-core kmod-sound-mtk madplay-alsa alsa-utils
+		kmod-sound-core kmod-sound-mtk madplay-alsa alsa-utils \
+		kmod-ledtrig-netdev mtk-sdk-wifi
 endef
 
 define Profile/DM06-profile/Description

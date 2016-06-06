@@ -13,3 +13,4 @@ src-git management https://github.com/openwrt-management/packages.git;for-15.05
 #src-svn xfce svn://svn.openwrt.org/openwrt/feeds/xfce
 #src-svn lxde svn://svn.openwrt.org/openwrt/feeds/lxde
 #src-link custom /usr/src/openwrt/custom-feed
+src-link customfeed /mnt/yf-gq/work/7688/openwrt-DM06/project/customfeed
