@@ -149,7 +149,7 @@ ralink_setup_sta(){
 
 drv_ralink_setup() {
 	local ifname="$1"
-	local bcn_active=0
+	local bcn_active=1
 	wmode=9
 	VHT=0
 	VHT_SGI=0

@@ -8,5 +8,20 @@ SSID=DM06_${MAC}
 
 uci set wireless.ap.ssid="$SSID"
 
+uci set network.wwan=interface
+uci set network.wwan.ifname='apcli0'
+uci set network.wwan.proto=dhcp
+
+uci add_list firewall.@zone[1].network=wwan
+
+uci set dhcp.wwan=dhcp
+uci set dhcp.wwan.interface=wwan
+uci set dhcp.wwan.ignore=1
+
+uci set wireless.sta.network=wwan
+uci set wireless.sta.ssid='wifi_music'
+uci set wireless.sta.key='12345678'
+uci set wireless.sta.disabled=0
+
 uci commit
 return 0
