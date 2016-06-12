@@ -16,4 +16,6 @@ then
 fi
 cp -rf $dir/target/linux/ramips/gq213-patches/shairport-sync/* $dir/feeds/packages/sound/shairport-sync/patches
 
+cp -rf $dir/target/linux/ramips/gq213-patches/gst1-plugins-good/* $dir/feeds/packages/multimedia/gst1-plugins-good
+
 echo "done,exit..."
