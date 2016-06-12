@@ -18,7 +18,8 @@ define Profile/DM06-profile
 		kmod-sound-core kmod-sound-mtk madplay-alsa alsa-utils \
 		kmod-ledtrig-netdev mtk-sdk-wifi \
 		samba36-server \
-		shairport-sync
+		shairport-sync \
+		platinum
 endef
 
 define Profile/DM06-profile/Description
