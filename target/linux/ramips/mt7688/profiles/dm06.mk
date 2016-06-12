@@ -17,7 +17,8 @@ define Profile/DM06-profile
 		kmod-i2c-core kmod-i2c-ralink \
 		kmod-sound-core kmod-sound-mtk madplay-alsa alsa-utils \
 		kmod-ledtrig-netdev mtk-sdk-wifi \
-		samba36-server
+		samba36-server \
+		shairport-sync
 endef
 
 define Profile/DM06-profile/Description
