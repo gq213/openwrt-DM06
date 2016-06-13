@@ -26,7 +26,7 @@ define Package/platinum
 	+gstreamer1-plugins-base +gst1-mod-alsa +gst1-mod-playback +gst1-mod-typefindfunctions +gst1-mod-volume \
 	+gst1-mod-audioconvert +gst1-mod-audioresample +gst1-mod-ogg +gst1-mod-ivorbisdec \
 	+gstreamer1-plugins-good +gst1-mod-audioparsers +gst1-mod-autodetect +gst1-mod-id3demux +gst1-mod-souphttpsrc \
-	+gst1-mod-wavparse +gst1-mod-isomp4 +gst1-mod-icydemux \
+	+gst1-mod-wavparse +gst1-mod-isomp4 +gst1-mod-icydemux +gst1-mod-flac \
 	+gstreamer1-plugins-ugly +gst1-mod-mad +gst1-mod-asf \
 	+gstreamer1-plugins-bad +gst1-mod-faad +gst1-mod-mms
   TITLE:=A framework for upnp applications
