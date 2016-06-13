@@ -18,6 +18,7 @@ cp -rf $dir/target/linux/ramips/gq213-patches/shairport-sync/* $dir/feeds/packag
 
 cp -rf $dir/target/linux/ramips/gq213-patches/gst1-plugins-good/* $dir/feeds/packages/multimedia/gst1-plugins-good
 
-cp -rf $dir/target/linux/ramips/gq213-patches/gst1-plugins-base/* $dir/feeds/packages/multimedia/gst1-plugins-base/patches
+cp -rf $dir/target/linux/ramips/gq213-patches/gst1-plugins-base/*.patch $dir/feeds/packages/multimedia/gst1-plugins-base/patches
+cp -rf $dir/target/linux/ramips/gq213-patches/gst1-plugins-base/Makefile $dir/feeds/packages/multimedia/gst1-plugins-base
 
 echo "done,exit..."
