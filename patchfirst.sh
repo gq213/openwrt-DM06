@@ -21,4 +21,13 @@ cp -rf $dir/target/linux/ramips/gq213-patches/gst1-plugins-good/* $dir/feeds/pac
 cp -rf $dir/target/linux/ramips/gq213-patches/gst1-plugins-base/*.patch $dir/feeds/packages/multimedia/gst1-plugins-base/patches
 cp -rf $dir/target/linux/ramips/gq213-patches/gst1-plugins-base/Makefile $dir/feeds/packages/multimedia/gst1-plugins-base
 
+cp -rf $dir/target/linux/ramips/gq213-patches/gst1-plugins-bad/* $dir/feeds/packages/multimedia/gst1-plugins-bad
+
+if [ ! -d $dir/feeds/packages/libs/faad2/patches ]
+then
+	echo "creat faad2/patches!!!"
+	mkdir -p $dir/feeds/packages/libs/faad2/patches
+fi
+cp -rf $dir/target/linux/ramips/gq213-patches/faad2/* $dir/feeds/packages/libs/faad2/patches
+
 echo "done,exit..."

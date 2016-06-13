@@ -1,0 +1,33 @@
+--- a/libfaad/fixed.h.ori	2007-11-01 20:33:30.000000000 +0800
++++ b/libfaad/fixed.h	2016-04-01 19:04:07.742041000 +0800
+@@ -233,9 +233,9 @@
+ #else
+ 
+   /* multiply with real shift */
+-  #define MUL_R(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)+(1 << (REAL_BITS-1))) >> REAL_BITS)
++  #define MUL_R(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)) >> REAL_BITS)
+   /* multiply with coef shift */
+-  #define MUL_C(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)+(1 << (COEF_BITS-1))) >> COEF_BITS)
++  #define MUL_C(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)) >> COEF_BITS)
+   /* multiply with fractional shift */
+ #if defined(_WIN32_WCE) && defined(_ARM_)
+   /* eVC for PocketPC has an intrinsic function that returns only the high 32 bits of a 32x32 bit multiply */
+@@ -261,13 +261,13 @@
+          "%0 = (a0 += a1);\n\t"                          \
+          : "=d" (__xxo) : "d" (X), "d" (Y) : "A0","A1"); __xxo; })
+ #else
+-  #define _MulHigh(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)+(1 << (FRAC_SIZE-1))) >> FRAC_SIZE)
+-  #define MUL_F(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)+(1 << (FRAC_BITS-1))) >> FRAC_BITS)
++  #define _MulHigh(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)) >> FRAC_SIZE)
++  #define MUL_F(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)) >> FRAC_BITS)
+ #endif
+ #endif
+-  #define MUL_Q2(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)+(1 << (Q2_BITS-1))) >> Q2_BITS)
+-  #define MUL_SHIFT6(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)+(1 << (6-1))) >> 6)
+-  #define MUL_SHIFT23(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)+(1 << (23-1))) >> 23)
++  #define MUL_Q2(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)) >> Q2_BITS)
++  #define MUL_SHIFT6(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)) >> 6)
++  #define MUL_SHIFT23(A,B) (real_t)(((int64_t)(A)*(int64_t)(B)) >> 23)
+ 
+ /* Complex multiplication */
+ static INLINE void ComplexMult(real_t *y1, real_t *y2,
