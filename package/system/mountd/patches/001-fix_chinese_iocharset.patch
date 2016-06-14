@@ -1,0 +1,13 @@
+--- a/mount.c.ori	2016-06-02 11:45:34.000000000 +0800
++++ b/mount.c	2016-06-14 10:53:42.546670000 +0800
+@@ -234,8 +234,8 @@
+ 		}
+ 		if(mount->fs == FAT)
+ 		{
+-			log_printf("mount -t vfat -o rw,uid=1000,gid=1000 /dev/%s %s", mount->dev, tmp);
+-			ret = system_printf("mount -t vfat -o rw,uid=1000,gid=1000 /dev/%s %s", mount->dev, tmp);
++			log_printf("mount -t vfat -o iocharset=utf8,rw,uid=1000,gid=1000 /dev/%s %s", mount->dev, tmp);
++			ret = system_printf("mount -t vfat -o iocharset=utf8,rw,uid=1000,gid=1000 /dev/%s %s", mount->dev, tmp);
+ 		}
+ 		if(mount->fs == EXT4)
+ 		{
