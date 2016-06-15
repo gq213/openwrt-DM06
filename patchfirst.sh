@@ -12,6 +12,7 @@ echo "patching..."
 src_dir="$dir/target/linux/ramips/gq213-patches"
 src_file=(
 "$src_dir/shairport-sync/001-modify_snd_mmap.patch"
+"$src_dir/shairport-sync/shairport-sync.init"
 "$src_dir/gst1-plugins-good/Makefile"
 "$src_dir/gst1-plugins-base/100-modify_snd_mmap.patch"
 "$src_dir/gst1-plugins-base/Makefile"
@@ -21,6 +22,7 @@ src_file=(
 
 dst_dir=(
 "$dir/feeds/packages/sound/shairport-sync/patches"
+"$dir/feeds/packages/sound/shairport-sync/files"
 "$dir/feeds/packages/multimedia/gst1-plugins-good"
 "$dir/feeds/packages/multimedia/gst1-plugins-base/patches"
 "$dir/feeds/packages/multimedia/gst1-plugins-base"
@@ -29,6 +31,7 @@ dst_dir=(
 )
 dst_file=(
 "/001-modify_snd_mmap.patch"
+"/shairport-sync.init"
 "/Makefile"
 "/100-modify_snd_mmap.patch"
 "/Makefile"
