@@ -49,6 +49,8 @@ define Package/platinum/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/Platinum/Targets/mipsel-openwrt-linux/Release/MediaRendererTest $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/Platinum/Targets/mipsel-openwrt-linux/Release/FileMediaServerTest $(1)/usr/bin/
+	$(INSTALL_DIR) $(1)/etc
+	$(CP) ./files/dlna.sh $(1)/etc/
 endef
 
 $(eval $(call BuildPackage,platinum))

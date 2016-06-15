@@ -93,6 +93,8 @@ case "$1" in
 	;;
 	renew|bound)
 		setup_interface
+		echo "restart dlna..."
+		touch /tmp/DmrStop
 	;;
 esac
 
