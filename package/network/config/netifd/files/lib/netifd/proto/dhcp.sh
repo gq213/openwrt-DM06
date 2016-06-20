@@ -38,6 +38,8 @@ proto_dhcp_setup() {
 		append dhcpopts "-x $opt"
 	done
 
+	append dhcpopts "-x hostname:$(uci get wireless.ap.ssid)-$iface"
+
 	[ "$broadcast" = 1 ] && broadcast="-B" || broadcast=
 	[ -n "$clientid" ] && clientid="-x 0x3d:${clientid//:/}" || clientid="-C"
 	[ -n "$iface6rd" ] && proto_export "IFACE6RD=$iface6rd"
