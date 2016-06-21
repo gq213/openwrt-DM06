@@ -1,6 +1,17 @@
 #!/bin/bash
 dir=`pwd`
 
+LASTLINE=$(tail -1 $dir/feeds.conf.default)
+WRITELINE="src-link customfeed $dir/project/customfeed"
+#echo $LASTLINE
+#echo $WRITELINE
+if [ "$LASTLINE" != "$WRITELINE" ]
+then
+	echo "modify customfeed path..."
+	sed -i '$'d $dir/feeds.conf.default
+	echo "$WRITELINE" >> $dir/feeds.conf.default
+fi
+
 if [ ! -d $dir/feeds ]
 then
 	echo "not found $dir/feeds, please run (./scripts/feeds update -a) first!!!"
@@ -49,7 +60,10 @@ do
 
 if [ -f $files ]; then
 	echo "compare..."
-	if [ ${src_file[$i]} -nt $files ]; then
+	if cmp -s ${src_file[$i]} $files
+	then
+		echo "same"
+	else
 		echo "overwrite..."
 		cp -a ${src_file[$i]} $files
 	fi
