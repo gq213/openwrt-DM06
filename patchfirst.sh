@@ -29,6 +29,8 @@ src_file=(
 "$src_dir/gst1-plugins-base/Makefile"
 "$src_dir/gst1-plugins-bad/Makefile"
 "$src_dir/faad2/001-modify_mult.patch"
+"$src_dir/luci/wifi.lua"
+"$src_dir/luci/wifi_add.lua"
 )
 
 dst_dir=(
@@ -39,6 +41,8 @@ dst_dir=(
 "$dir/feeds/packages/multimedia/gst1-plugins-base"
 "$dir/feeds/packages/multimedia/gst1-plugins-bad"
 "$dir/feeds/packages/libs/faad2/patches"
+"$dir/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_network"
+"$dir/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_network"
 )
 dst_file=(
 "/001-modify_snd_mmap.patch"
@@ -48,6 +52,8 @@ dst_file=(
 "/Makefile"
 "/Makefile"
 "/001-modify_mult.patch"
+"/wifi.lua"
+"/wifi_add.lua"
 )
 
 for ((i=0; i<${#src_file[@]}; i++))
