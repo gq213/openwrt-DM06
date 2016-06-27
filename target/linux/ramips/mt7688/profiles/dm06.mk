@@ -10,7 +10,7 @@ define Profile/DM06-profile
 	PACKAGES:=\
 		kmod-usb-core kmod-usb2 kmod-usb-ohci \
 		luci \
-		kmod-usb-storage kmod-fs-vfat \
+		kmod-usb-storage kmod-fs-vfat kmod-fs-ext4 \
 		kmod-nls-base kmod-nls-cp437 kmod-nls-iso8859-1 kmod-nls-utf8 kmod-nls-cp936 kmod-nls-ascii \
 		mountd usbutils \
 		kmod-sdhci-mt7620 \
