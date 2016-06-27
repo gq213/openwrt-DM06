@@ -8133,7 +8133,7 @@
  }
  
  static int wm8960_put_deemph(struct snd_kcontrol *kcontrol,
-@@ -200,6 +199,65 @@ static int wm8960_put_deemph(struct snd_
+@@ -200,6 +199,68 @@ static int wm8960_put_deemph(struct snd_
  	return wm8960_set_deemph(codec);
  }
  
@@ -8174,6 +8174,9 @@
 +	snd_soc_write(codec, WM8960_LOUT1, LOUT1_LO1VU|LOUT1_LO1ZC|LOUT1_LOUT1VOL(120));//0x02
 +	snd_soc_write(codec, WM8960_ROUT1, ROUT1_RO1VU|ROUT1_RO1ZC|ROUT1_ROUT1VOL(120));//0x03
 +	
++	snd_soc_write(codec, WM8960_LOUT2, LOUT1_LO1VU|LOUT1_LO1ZC|LOUT1_LOUT1VOL(120));//0x28
++	snd_soc_write(codec, WM8960_ROUT2, ROUT1_RO1VU|ROUT1_RO1ZC|ROUT1_ROUT1VOL(120));//0x29
++
 +	data = snd_soc_read(codec, WM8960_LINVOL);
 +	data &= ~LINV_LINMUTE;
 +	snd_soc_write(codec, WM8960_LINVOL, data|LINV_IPVU|LINV_LINVOL(96));//LINV(0x00)
@@ -8199,7 +8202,7 @@
  static const DECLARE_TLV_DB_SCALE(adc_tlv, -9700, 50, 0);
  static const DECLARE_TLV_DB_SCALE(dac_tlv, -12700, 50, 1);
  static const DECLARE_TLV_DB_SCALE(bypass_tlv, -2100, 300, 0);
-@@ -542,6 +600,9 @@ static int wm8960_set_dai_fmt(struct snd
+@@ -542,6 +603,9 @@ static int wm8960_set_dai_fmt(struct snd
  
  	/* set iface */
  	snd_soc_write(codec, WM8960_IFACE1, iface);
@@ -8209,7 +8212,7 @@
  	return 0;
  }
  
-@@ -623,11 +684,15 @@ static int wm8960_set_bias_level_out3(st
+@@ -623,11 +687,15 @@ static int wm8960_set_bias_level_out3(st
  		break;
  
  	case SND_SOC_BIAS_PREPARE:
@@ -8225,7 +8228,7 @@
  		if (codec->dapm.bias_level == SND_SOC_BIAS_OFF) {
  			regcache_sync(wm8960->regmap);
  
-@@ -650,9 +715,13 @@ static int wm8960_set_bias_level_out3(st
+@@ -650,9 +718,13 @@ static int wm8960_set_bias_level_out3(st
  
  		/* Set VMID to 2x250k */
  		snd_soc_update_bits(codec, WM8960_POWER1, 0x180, 0x100);
@@ -8239,7 +8242,7 @@
  		/* Enable anti-pop features */
  		snd_soc_write(codec, WM8960_APOP1,
  			     WM8960_POBCTRL | WM8960_SOFT_ST |
-@@ -661,6 +730,7 @@ static int wm8960_set_bias_level_out3(st
+@@ -661,6 +733,7 @@ static int wm8960_set_bias_level_out3(st
  		/* Disable VMID and VREF, let them discharge */
  		snd_soc_write(codec, WM8960_POWER1, 0);
  		msleep(600);
@@ -8247,7 +8250,7 @@
  		break;
  	}
  
-@@ -853,7 +923,6 @@ static int wm8960_set_dai_pll(struct snd
+@@ -853,7 +926,6 @@ static int wm8960_set_dai_pll(struct snd
  
  	if (pll_div.k) {
  		reg |= 0x20;
@@ -8255,7 +8258,7 @@
  		snd_soc_write(codec, WM8960_PLL2, (pll_div.k >> 16) & 0xff);
  		snd_soc_write(codec, WM8960_PLL3, (pll_div.k >> 8) & 0xff);
  		snd_soc_write(codec, WM8960_PLL4, pll_div.k & 0xff);
-@@ -962,7 +1031,7 @@ static int wm8960_probe(struct snd_soc_c
+@@ -962,7 +1034,7 @@ static int wm8960_probe(struct snd_soc_c
  {
  	struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
  	struct wm8960_data *pdata = dev_get_platdata(codec->dev);
@@ -8264,7 +8267,7 @@
  
  	wm8960->set_bias_level = wm8960_set_bias_level_out3;
  
-@@ -973,26 +1042,9 @@ static int wm8960_probe(struct snd_soc_c
+@@ -973,26 +1045,9 @@ static int wm8960_probe(struct snd_soc_c
  			wm8960->set_bias_level = wm8960_set_bias_level_capless;
  	}
  
