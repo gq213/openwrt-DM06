@@ -93,7 +93,7 @@ case "$1" in
 	;;
 	renew|bound)
 		setup_interface
-		echo "restart dlna..."
+		echo "dhcpc, stop dlna. wait to start..." > /dev/console
 		touch /tmp/DmrStop
 	;;
 esac
