@@ -31,6 +31,9 @@ src_file=(
 "$src_dir/faad2/001-modify_mult.patch"
 "$src_dir/luci/wifi.lua"
 "$src_dir/luci/wifi_add.lua"
+"$src_dir/luci/wifi_overview.htm"
+"$src_dir/luci/index.htm"
+"$src_dir/luci/network.lua"
 )
 
 dst_dir=(
@@ -43,6 +46,9 @@ dst_dir=(
 "$dir/feeds/packages/libs/faad2/patches"
 "$dir/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_network"
 "$dir/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_network"
+"$dir/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_network"
+"$dir/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status"
+"$dir/feeds/luci/modules/luci-base/luasrc/model"
 )
 dst_file=(
 "/001-modify_snd_mmap.patch"
@@ -54,6 +60,9 @@ dst_file=(
 "/001-modify_mult.patch"
 "/wifi.lua"
 "/wifi_add.lua"
+"/wifi_overview.htm"
+"/index.htm"
+"/network.lua"
 )
 
 for ((i=0; i<${#src_file[@]}; i++))
