@@ -18,14 +18,25 @@ end
 
 
 local name
+local mode
+local warn
 if wnet:get("ifname") == "ra0" then
 	name = "AP Mode Setting"
+	mode = "ap"
+	warn = "<em>Warning: After Submit, Please Reboot!!!</em>"
 else
 	name = "STA Mode Setting"
+	mode = "sta"
+	warn = "<em>Warning: If you want join in new network, Please back to wireless overview, Then click \"Scan\"!!!</em>"
 end
-m = SimpleForm("wireless", name, translate("<em>Warning: After Submit, Please Reboot!!!</em>"))
+
+m = SimpleForm("wireless", name, warn)
 m.cancel = translate("Back to wireless overview")
 m.reset = false
+
+if mode == "sta" then
+	m.submit = false
+end
 
 function m.on_cancel()
 	luci.http.redirect(luci.dispatcher.build_url("admin/network/wireless"))

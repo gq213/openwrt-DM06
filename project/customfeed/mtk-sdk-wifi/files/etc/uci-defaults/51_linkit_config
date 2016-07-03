@@ -19,9 +19,9 @@ uci set dhcp.wwan.interface=wwan
 uci set dhcp.wwan.ignore=1
 
 uci set wireless.sta.network=wwan
-uci set wireless.sta.ssid='wifi_music'
-uci set wireless.sta.key='12345678'
-uci set wireless.sta.disabled=0
+#uci set wireless.sta.ssid='wifi_music'
+#uci set wireless.sta.key='12345678'
+#uci set wireless.sta.disabled=0
 
 uci commit
 return 0

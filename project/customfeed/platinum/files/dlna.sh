@@ -10,7 +10,7 @@ do
         #echo "check"
                
         if [ -f "/tmp/DmrStart" ]; then
-                echo "daemon, start dlna..."
+                echo "daemon, start dlna..." > /dev/console
                 MediaRendererTest -f "$NAME-W" &
                 rm -rf /tmp/DmrStart
         fi     

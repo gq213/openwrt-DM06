@@ -16,7 +16,7 @@ if not iw then
 	return
 end
 
-m = SimpleForm("network", translatef("Join In \"%s\"", http.formvalue("join")), translate("<em>Warning: After Submit, Please Reboot!!!</em>"))
+m = SimpleForm("network", translatef("Join In \"%s\"", http.formvalue("join")), translate("<em>Warning: Input passphrase only, Don't change others. After Submit, Please Reboot!!!</em>"))
 m.cancel = translate("Back to scan results")
 m.reset = false
 
@@ -86,6 +86,7 @@ function newnet.parse(self, section)
 		uci:set("wireless", "sta", "ssid", upap_ssid)
 		uci:set("wireless", "sta", "encryption", upap_encryption)
 		uci:set("wireless", "sta", "key", upap_key)
+		uci:set("wireless", "sta", "disabled", "0")
 		uci:save("wireless")
 		uci:commit("wireless")
 	end
