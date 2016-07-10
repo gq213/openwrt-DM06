@@ -430,6 +430,9 @@ ramips_board_detect() {
 	*"DM06-V11_IOT-V22")
 		name="dm06"
 		;;
+	*"Widora-NEO")
+		name="widora"
+		;;
 	*"MediaTek LinkIt Smart 7688")
 		linkit="$(dd bs=1 skip=1024 count=12 if=/dev/mtd2 2> /dev/null)"
 		if [ "${linkit}" = "LINKITS7688D" ]; then

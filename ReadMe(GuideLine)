@@ -17,7 +17,7 @@ make menuconfig
 * Select the options as below:
     * Target System: `Ralink RT288x/RT3xxx`
     * Subtarget: `MT7688 based boards`
-    * Target Profile: `dm06 iot board`
+    * Target Profile: `dm06 iot board` or `widora-neo board`
 * Save and exit
 
 6)
