@@ -19,7 +19,8 @@ define Profile/DM06-profile
 		kmod-ledtrig-netdev mtk-sdk-wifi \
 		samba36-server \
 		shairport-sync \
-		platinum
+		platinum \
+		mplayer
 endef
 
 define Profile/DM06-profile/Description

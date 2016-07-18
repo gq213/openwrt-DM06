@@ -19,7 +19,8 @@ define Profile/WIDORA-profile
 		kmod-ledtrig-netdev mtk-sdk-wifi \
 		samba36-server \
 		shairport-sync \
-		platinum
+		platinum \
+		mplayer
 endef
 
 define Profile/WIDORA-profile/Description
