@@ -28,7 +28,8 @@ define Package/platinum
 	+gstreamer1-plugins-good +gst1-mod-audioparsers +gst1-mod-autodetect +gst1-mod-id3demux +gst1-mod-souphttpsrc \
 	+gst1-mod-wavparse +gst1-mod-isomp4 +gst1-mod-icydemux +gst1-mod-flac \
 	+gstreamer1-plugins-ugly +gst1-mod-mad +gst1-mod-asf \
-	+gstreamer1-plugins-bad +gst1-mod-faad +gst1-mod-mms
+	+gstreamer1-plugins-bad +gst1-mod-faad +gst1-mod-mms \
+	+gst1-plugins-wma
   TITLE:=A framework for upnp applications
 endef
 
