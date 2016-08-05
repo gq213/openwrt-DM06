@@ -25,7 +25,7 @@ define Package/mplayer
   SECTION:=multimedia
   CATEGORY:=Multimedia
   TITLE:=mplayer-mips
-  DEPENDS:= +ffmpeg3 +libmad +alsa-lib +libncurses +libgnutls +libfaad2 +libogg +libvorbisidec
+  DEPENDS:= +ffmpeg3 +libmad +alsa-lib +libncurses +libgnutls +libfaad2 +libogg +libvorbisidec +zlib
 endef
 
 define Package/mplayer/description
