@@ -7,27 +7,36 @@
 board=$(ramips_board_name)
 
 MAC=$(dd bs=1 skip=7 count=3 if=/dev/mtd2 2>/dev/null | hexdump -v -n 3 -e '3/1 "%02X"')
-SSID=${board}_${MAC}
+SSID=$(echo $board | tr '[a-z]' '[A-Z]')_${MAC}
 
-uci set system.@system[0].hostname="$SSID"
+uci set system.@system[0].hostname="$board"
 uci set system.@system[0].firmware_version=v1.4
 
 uci set wireless.ap.ssid="$SSID"
 
-uci set network.wwan=interface
-uci set network.wwan.ifname='apcli0'
-uci set network.wwan.proto=dhcp
+if [ "$board"x = "dm06"x ]; then
 
-uci add_list firewall.@zone[1].network=wwan
+	uci set network.wwan=interface
+	uci set network.wwan.ifname='apcli0'
+	uci set network.wwan.proto=dhcp
 
-uci set dhcp.wwan=dhcp
-uci set dhcp.wwan.interface=wwan
-uci set dhcp.wwan.ignore=1
+	uci add_list firewall.@zone[1].network=wwan
 
-uci set wireless.sta.network=wwan
-#uci set wireless.sta.ssid='wifi_music'
-#uci set wireless.sta.key='12345678'
-#uci set wireless.sta.disabled=0
+	uci set dhcp.wwan=dhcp
+	uci set dhcp.wwan.interface=wwan
+	uci set dhcp.wwan.ignore=1
+
+	uci set wireless.sta.network=wwan
+	#uci set wireless.sta.ssid='wifi_music'
+	#uci set wireless.sta.key='12345678'
+	#uci set wireless.sta.disabled=0
+
+elif [ "$board"x = "widora"x ]; then
+
+	sh /etc/set_mode_wan_ap.sh
+	#sh /etc/set_wifi_connect.sh 0 wifi_music 12345678 psk2
+
+fi
 
 uci commit
 return 0

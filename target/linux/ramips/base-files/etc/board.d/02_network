@@ -63,6 +63,11 @@ ramips_setup_interfaces()
 		ucidef_set_interface_lan "eth0"
 		;;
 
+	widora)
+		ucidef_add_switch "switch0" "1" "1"
+		ucidef_add_switch_vlan "switch0" "1" "0 6t"
+		;;
+
 	3g-6200nl | \
 	mlw221 | \
 	mr-102n)
@@ -177,7 +182,6 @@ ramips_setup_interfaces()
 	rt-n14u | \
 	wrtnode | \
 	dm06 | \
-	widora | \
 	wt3020 | \
 	ur-326n4g | \
 	zbt-wa05)
@@ -384,11 +388,12 @@ ramips_setup_macs()
 		lan_mac=$wan_mac
 		;;
 	dm06 | \
-	widora | \
 	linkits7688 | \
 	linkits7688d)
 		wan_mac=$(mtd_get_mac_binary factory 4)
 		lan_mac=$(mtd_get_mac_binary factory 46)
+		;;
+	widora)
 		;;
 	*)
 		lan_mac=$(cat /sys/class/net/eth0/address)

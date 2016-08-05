@@ -89,6 +89,8 @@ function newnet.parse(self, section)
 		uci:set("wireless", "sta", "disabled", "0")
 		uci:save("wireless")
 		uci:commit("wireless")
+
+		luci.sys.call("sh /etc/set_mode_sta_lan.sh")
 	end
 
 	luci.http.redirect(luci.dispatcher.build_url("admin/network/wireless"))	

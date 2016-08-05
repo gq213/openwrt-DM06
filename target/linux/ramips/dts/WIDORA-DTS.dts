@@ -98,8 +98,7 @@
 	};
 
 	ethernet@10100000 {
-		mtd-mac-address = <&factory 0x28>;
-		ralink,port-map = "wllll";
+		mtd-mac-address = <&factory 0x2e>;
 	};
 
 	sdhci@10130000 {

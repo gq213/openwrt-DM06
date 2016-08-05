@@ -27,21 +27,21 @@ if wnet:get("ifname") == "ra0" then
 else
 	name = "STA Mode Setting"
 	mode = "sta"
-	warn = "<em>Warning: If you want join in new network, Please back to wireless overview, Then click \"Scan\"!!!</em>"
+	warn = "<em>Warning: If you want join in new network, Recommend back to wireless overview, Then click \"Scan\"!!!</em>"
 end
 
 m = SimpleForm("wireless", name, warn)
 m.cancel = translate("Back to wireless overview")
 m.reset = false
 
-if mode == "sta" then
-	m.submit = false
-end
-
 function m.on_cancel()
 	luci.http.redirect(luci.dispatcher.build_url("admin/network/wireless"))
 end
 
+if mode == "sta" then
+new_disabled = m:field(Flag, "disabled", translate("Disabled"), translate("For widora, checked, wan-->ap; unchecked sta-->lan+ap"))
+new_disabled.default = wnet:get("disabled")
+end
 
 new_ssid = m:field(Value, "ssid", translate("SSID"), "")
 new_ssid.default = wnet:get("ssid")
@@ -57,6 +57,9 @@ new_key.default = wnet:get("key")
 
 function new_key.parse(self, section)
 
+	if mode == "sta" then
+	disabled = new_disabled and new_disabled:formvalue(section) or ""
+	end
 	ssid = new_ssid and new_ssid:formvalue(section) or ""
 	encr = new_encr and new_encr:formvalue(section) or ""
 	key = new_key and new_key:formvalue(section) or ""
@@ -65,11 +68,22 @@ function new_key.parse(self, section)
 		return
 	end
 
+	if mode == "sta" then
+	wnet:set("disabled", disabled)
+	end
 	wnet:set("ssid", ssid)
 	wnet:set("key", key)
 	wnet:set("encryption", encr)
 	nw:save("wireless")
 	nw:commit("wireless")
+
+	if mode == "sta" then
+		if disabled == "1" then
+			luci.sys.call("sh /etc/set_mode_wan_ap.sh")
+		else
+			luci.sys.call("sh /etc/set_mode_sta_lan.sh")
+		end
+	end
 
 	luci.http.redirect(luci.dispatcher.build_url("admin/network/wireless"))	
 
