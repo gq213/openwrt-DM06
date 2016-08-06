@@ -4,8 +4,6 @@
 . /lib/functions.sh
 . /lib/netifd/netifd-proto.sh
 
-echo "$1+$INTERFACE"
-
 set_classless_routes() {
 	local max=128
 	while [ -n "$1" -a -n "$2" -a $max -gt 0 ]; do
@@ -89,44 +87,12 @@ deconfig_interface() {
 	proto_send_update "$INTERFACE"
 }
 
-start_dlna() {
-	if [ -f "/tmp/DLNA" ]; then
-		echo "dlna is running..."
-	else
-		echo "start dlna..."
-		sh /etc/dlna.sh &
-		touch /tmp/DLNA
-	fi
-}
-
-restart_dmr() {
-	local flag="0"
-
-	[ -f "/tmp/DmrStart" ] && flag="1"
-	[ -f "/tmp/DmrStop" ] && flag="1"
-
-	if [ "$flag"x = "0"x ]; then
-		echo "stop dmr. wait to start..."
-		touch /tmp/DmrStop
-	else
-		echo "dmr is restarting..."
-	fi
-}
-
 case "$1" in
 	deconfig)
-		echo "dhcpc deconfig..."
 		deconfig_interface
-		start_dlna
 	;;
-	renew)
-		echo "dhcpc renew..."
+	renew|bound)
 		setup_interface
-	;;
-	bound)
-		echo "dhcpc bound..."
-		setup_interface
-		restart_dmr
 	;;
 esac
 

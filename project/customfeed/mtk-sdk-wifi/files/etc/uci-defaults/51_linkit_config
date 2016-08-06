@@ -10,7 +10,7 @@ MAC=$(dd bs=1 skip=7 count=3 if=/dev/mtd2 2>/dev/null | hexdump -v -n 3 -e '3/1 
 SSID=$(echo $board | tr '[a-z]' '[A-Z]')_${MAC}
 
 uci set system.@system[0].hostname="$board"
-uci set system.@system[0].firmware_version=v1.4
+uci set system.@system[0].firmware_version=v1.5
 
 uci set wireless.ap.ssid="$SSID"
 
