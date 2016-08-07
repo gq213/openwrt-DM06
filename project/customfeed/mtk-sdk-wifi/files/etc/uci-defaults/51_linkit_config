@@ -27,9 +27,7 @@ if [ "$board"x = "dm06"x ]; then
 	uci set dhcp.wwan.ignore=1
 
 	uci set wireless.sta.network=wwan
-	#uci set wireless.sta.ssid='wifi_music'
-	#uci set wireless.sta.key='12345678'
-	#uci set wireless.sta.disabled=0
+	#sh /etc/set_wifi_connect.sh 1 wifi_music 12345678 psk2
 
 elif [ "$board"x = "widora"x ]; then
 

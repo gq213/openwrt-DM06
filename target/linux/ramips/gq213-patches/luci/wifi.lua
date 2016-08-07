@@ -79,9 +79,9 @@ function new_key.parse(self, section)
 
 	if mode == "sta" then
 		if disabled == "1" then
-			luci.sys.call("sh /etc/set_mode_wan_ap.sh")
+			luci.sys.call("sh /etc/set_mode_wan_ap.sh >/dev/null 2>&1")
 		else
-			luci.sys.call("sh /etc/set_mode_sta_lan.sh")
+			luci.sys.call("sh /etc/set_mode_sta_lan.sh >/dev/null 2>&1")
 		end
 	end
 
