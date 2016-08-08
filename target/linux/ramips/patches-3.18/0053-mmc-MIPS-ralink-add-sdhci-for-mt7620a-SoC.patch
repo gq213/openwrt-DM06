@@ -4781,7 +4781,7 @@ Signed-off-by: John Crispin <blogic@openwrt.org>
 +//#elif defined (CONFIG_RALINK_MT7628)
 +    /* TODO: maybe omitted when RAether already toggle AGPIO_CFG */
 +    reg = sdr_read32((volatile u32*)(RALINK_SYSCTL_BASE + 0x3c));
-+    reg |= 0x3 << 19;
++    reg |= 0x1e << 16;
 +    sdr_write32((volatile u32*)(RALINK_SYSCTL_BASE + 0x3c), reg);
 +
 +    reg = sdr_read32((volatile u32*)(RALINK_SYSCTL_BASE + 0x60)) & ~(0x3<<10);

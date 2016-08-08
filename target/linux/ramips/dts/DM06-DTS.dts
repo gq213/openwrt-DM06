@@ -102,11 +102,6 @@
 		ralink,port-map = "wllll";
 	};
 
-	sdhci@10130000 {
-		status = "okay";
-		mediatek,cd-low;
-	};
-
 	gpio-keys-polled {
 		compatible = "gpio-keys-polled";
 		#address-cells = <1>;
