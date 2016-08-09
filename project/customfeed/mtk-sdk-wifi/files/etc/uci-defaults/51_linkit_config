@@ -37,4 +37,9 @@ elif [ "$board"x = "widora"x ]; then
 fi
 
 uci commit
+
+ip="$(uci get network.lan.ipaddr)"
+DNS_CFG="address=/${board}.cfg/${ip}"
+echo $DNS_CFG >> /etc/dnsmasq.conf
+
 return 0
