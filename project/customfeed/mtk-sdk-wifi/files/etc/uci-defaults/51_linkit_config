@@ -16,9 +16,12 @@ uci set wireless.ap.ssid="$SSID"
 
 if [ "$board"x = "dm06"x ]; then
 
+	uci set network.wan.dns='114.114.114.114 8.8.8.8'
+
 	uci set network.wwan=interface
 	uci set network.wwan.ifname='apcli0'
 	uci set network.wwan.proto=dhcp
+	uci set network.wwan.dns='114.114.114.114 8.8.8.8'
 
 	uci add_list firewall.@zone[1].network=wwan
 

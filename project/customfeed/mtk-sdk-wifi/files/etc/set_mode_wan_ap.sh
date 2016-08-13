@@ -14,6 +14,7 @@ uci set wireless.sta.disabled='1'
 uci set network.wan=interface
 uci set network.wan.ifname='eth0.1'
 uci set network.wan.proto='dhcp'
+uci set network.wan.dns='114.114.114.114 8.8.8.8'
 
 uci set network.lan=interface
 uci set network.lan.ifname='eth0.2'
